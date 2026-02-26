@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product - Velmora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-neutral-200 sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="text-2xl font-light tracking-wider">VELMORA</a>
+                
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="shop.html?category=mens" class="text-sm hover:text-neutral-600 transition-colors">Men's</a>
+                    <a href="shop.html?category=womens" class="text-sm hover:text-neutral-600 transition-colors">Women's</a>
+                    <a href="shop.html?category=shoes" class="text-sm hover:text-neutral-600 transition-colors">Shoes</a>
+                </div>
+
+                <div class="flex items-center gap-6">
+                    <a href="wishlist.html" class="relative">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                        <span id="wishlistCount" class="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"></span>
+                    </a>
+                    <a href="cart.html" class="relative">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                        <span id="cartCount" class="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Content -->
+    <div id="productContent" class="container mx-auto px-4 py-8">
+        <!-- Will be loaded by JavaScript -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-neutral-200 py-12 mt-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center text-sm text-neutral-600">
+                <p>&copy; 2026 Velmora. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="products-data.js"></script>
+    <script src="cart-functions.js"></script>
+    <script>
+        let selectedSize = '';
+        let selectedColor = '';
+        let currentProduct = null;
+
+        // Generate star rating HTML
+        function generateStars(rating) {
+            const fullStars = Math.floor(rating);
+            const halfStar = rating % 1 >= 0.5;
+            let stars = '';
+
+            for (let i = 0; i < fullStars; i++) {
+                stars += '<svg class="w-4 h-4 fill-yellow-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>';
+            }
+
+            if (halfStar) {
+                stars += '<svg class="w-4 h-4 fill-yellow-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" fill-opacity="0.5"></path></svg>';
+            }
+
+            const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '<svg class="w-4 h-4 fill-neutral-300" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>';
+            }
+
+            return stars;
+        }
+
+        function getProductIdFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('id');
+        }
+
+        function loadProduct() {
+            const productId = getProductIdFromUrl();
+            currentProduct = getProductById(productId);
+
+            if (!currentProduct) {
+                document.getElementById('productContent').innerHTML = `
+                    <div class="text-center py-20">
+                        <h2 class="text-2xl font-medium mb-4">Product not found</h2>
+                        <a href="shop.html" class="text-blue-600 hover:underline">Back to Shop</a>
+                    </div>
+                `;
+                return;
+            }
+
+            const inWishlist = isInWishlist(productId);
+
+            document.getElementById('productContent').innerHTML = `
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Product Image -->
+                    <div>
+                        <img src="${currentProduct.images[0]}" alt="${currentProduct.name}" class="w-full h-auto object-cover">
+                    </div>
+
+                    <!-- Product Details -->
+                    <div>
+                        <h1 class="text-3xl font-light mb-4">${currentProduct.name}</h1>
+                        
+                        <div class="flex items-center gap-4 mb-6">
+                            ${currentProduct.salePrice ? `
+                                <span class="text-2xl font-medium">$${currentProduct.salePrice.toFixed(2)}</span>
+                                <span class="text-xl text-neutral-500 line-through">$${currentProduct.price.toFixed(2)}</span>
+                            ` : `
+                                <span class="text-2xl font-medium">$${currentProduct.price.toFixed(2)}</span>
+                            `}
+                        </div>
+
+                        <div class="flex items-center gap-2 mb-6">
+                            <div class="flex">${generateStars(currentProduct.rating)}</div>
+                            <span class="text-sm text-neutral-600">(${currentProduct.reviews} reviews)</span>
+                        </div>
+
+                        <p class="text-neutral-700 mb-8">${currentProduct.description}</p>
+
+                        <!-- Size Selection -->
+                        <div class="mb-6">
+                            <h3 class="font-medium mb-3">Select Size</h3>
+                            <div class="flex flex-wrap gap-2">
+                                ${currentProduct.sizes.map(size => `
+                                    <button 
+                                        onclick="selectSize('${size}')" 
+                                        id="size-${size}"
+                                        class="px-4 py-2 border border-neutral-300 hover:border-black transition-colors"
+                                    >
+                                        ${size}
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <!-- Color Selection -->
+                        <div class="mb-8">
+                            <h3 class="font-medium mb-3">Select Color</h3>
+                            <div class="flex flex-wrap gap-2">
+                                ${currentProduct.colors.map(color => `
+                                    <button 
+                                        onclick="selectColor('${color.name}')" 
+                                        id="color-${color.name.replace(/\s/g, '')}"
+                                        class="px-4 py-2 border border-neutral-300 hover:border-black transition-colors"
+                                        style="background-color: ${color.hex}; ${color.hex === '#FFFFFF' || color.hex === '#FFFFF0' ? 'border: 1px solid #e5e5e5;' : ''}"
+                                        title="${color.name}"
+                                    >
+                                        <span class="${color.hex === '#FFFFFF' || color.hex === '#FFFFF0' ? 'text-black' : 'text-white'}">
+                                            ${color.name}
+                                        </span>
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="flex gap-4 mb-6">
+                            <button 
+                                onclick="handleAddToCart()" 
+                                class="flex-1 py-3 bg-black text-white hover:bg-neutral-800 transition-colors"
+                            >
+                                Add to Cart
+                            </button>
+                            <button 
+                                onclick="toggleWishlist('${productId}'); updateWishlistButton()" 
+                                id="wishlistBtn"
+                                class="px-4 py-3 border border-black hover:bg-neutral-100 transition-colors"
+                            >
+                                <svg class="w-6 h-6 ${inWishlist ? 'fill-red-500 stroke-red-500' : 'fill-none stroke-current'}" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Product Info -->
+                        <div class="border-t border-neutral-200 pt-6 space-y-4">
+                            <div>
+                                <h4 class="font-medium mb-2">Fabric</h4>
+                                <p class="text-sm text-neutral-600">${currentProduct.fabric}</p>
+                            </div>
+                            ${currentProduct.inStock ? 
+                                '<p class="text-sm text-green-600">In Stock</p>' : 
+                                '<p class="text-sm text-red-600">Out of Stock</p>'
+                            }
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Auto-select first size and color
+            if (currentProduct.sizes.length > 0) {
+                selectSize(currentProduct.sizes[0]);
+            }
+            if (currentProduct.colors.length > 0) {
+                selectColor(currentProduct.colors[0].name);
+            }
+        }
+
+        function selectSize(size) {
+            selectedSize = size;
+            // Remove active class from all
+            currentProduct.sizes.forEach(s => {
+                const btn = document.getElementById(`size-${s}`);
+                btn.classList.remove('bg-black', 'text-white');
+                btn.classList.add('bg-white', 'text-black');
+            });
+            // Add active class
+            const activeBtn = document.getElementById(`size-${size}`);
+            activeBtn.classList.add('bg-black', 'text-white');
+            activeBtn.classList.remove('bg-white', 'text-black');
+        }
+
+        function selectColor(colorName) {
+            selectedColor = colorName;
+            // Remove active class from all
+            currentProduct.colors.forEach(c => {
+                const btn = document.getElementById(`color-${c.name.replace(/\s/g, '')}`);
+                btn.style.borderWidth = '1px';
+            });
+            // Add active class
+            const activeBtn = document.getElementById(`color-${colorName.replace(/\s/g, '')}`);
+            activeBtn.style.borderWidth = '3px';
+        }
+
+        function handleAddToCart() {
+            if (!selectedSize || !selectedColor) {
+                showToast('Please select size and color');
+                return;
+            }
+            addToCart(currentProduct.id, selectedSize, selectedColor, 1);
+        }
+
+        function updateWishlistButton() {
+            const btn = document.getElementById('wishlistBtn');
+            const svg = btn.querySelector('svg');
+            const inWishlist = isInWishlist(currentProduct.id);
+            
+            if (inWishlist) {
+                svg.classList.add('fill-red-500', 'stroke-red-500');
+                svg.classList.remove('fill-none');
+            } else {
+                svg.classList.remove('fill-red-500', 'stroke-red-500');
+                svg.classList.add('fill-none');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadProduct);
+    </script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velmora - Premium Fashion & Footwear</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-neutral-200 sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="text-2xl font-light tracking-wider">VELMORA</a>
+                
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="shop.html?category=mens" class="text-sm hover:text-neutral-600 transition-colors">Men's</a>
+                    <a href="shop.html?category=womens" class="text-sm hover:text-neutral-600 transition-colors">Women's</a>
+                    <a href="shop.html?category=shoes" class="text-sm hover:text-neutral-600 transition-colors">Shoes</a>
+                    <a href="shop.html?category=sale" class="text-sm text-red-600 hover:text-red-700 transition-colors">Sale</a>
+                </div>
+
+                <div class="flex items-center gap-6">
+                    <a href="wishlist.html" class="relative">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                        <span id="wishlistCount" class="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"></span>
+                    </a>
+                    <a href="cart.html" class="relative">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                        <span id="cartCount" class="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-neutral-50">
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                <!-- Large Featured Image -->
+                <a href="shop.html?category=womens" class="lg:col-span-2 lg:row-span-2 relative group overflow-hidden aspect-[4/5] lg:aspect-auto lg:h-[600px]">
+                    <img
+                        src="https://images.unsplash.com/photo-1545553583-fe9cfabc045b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBmYXNoaW9uJTIwbW9kZWwlMjBsaWZlc3R5bGV8ZW58MXx8fHwxNzcyMDQyOTU5fDA&ixlib=rb-4.1.0&q=80&w=1080"
+                        alt="New Collection"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl mb-4 font-light">
+                            New Spring Collection
+                        </h1>
+                        <p class="text-lg md:text-xl mb-6 font-light">
+                            Discover timeless elegance
+                        </p>
+                        <span class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black hover:bg-neutral-100 transition-colors">
+                            Shop Women's
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Top Right Card -->
+                <a href="shop.html?category=mens" class="relative group overflow-hidden aspect-[4/5] lg:aspect-auto lg:h-[290px]">
+                    <img
+                        src="https://images.unsplash.com/photo-1744551154437-133615e57adb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBtZW5zd2VhciUyMHN0eWxlfGVufDF8fHx8MTc3MjA0MjQyNXww&ixlib=rb-4.1.0&q=80&w=1080"
+                        alt="Men's Collection"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div class="absolute inset-0 bg-black/30"></div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-white text-center p-6">
+                        <h2 class="text-2xl md:text-3xl mb-2 font-light">Men's Essentials</h2>
+                        <p class="text-sm mb-4">Modern classics</p>
+                        <span class="flex items-center gap-2 text-sm">
+                            Shop Now
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Bottom Right Card -->
+                <a href="shop.html?category=shoes" class="relative group overflow-hidden aspect-[4/5] lg:aspect-auto lg:h-[290px]">
+                    <img
+                        src="https://images.unsplash.com/photo-1650320079970-b4ee8f0dae33?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYXNoaW9uJTIwc2hvZXMlMjBzbmVha2Vyc3xlbnwxfHx8fDE3NzE5NjkyODl8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                        alt="Footwear Collection"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div class="absolute inset-0 bg-black/30"></div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-white text-center p-6">
+                        <h2 class="text-2xl md:text-3xl mb-2 font-light">Premium Footwear</h2>
+                        <p class="text-sm mb-4">Step up your style</p>
+                        <span class="flex items-center gap-2 text-sm">
+                            Shop Now
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotional Banner -->
+    <section class="bg-neutral-900 text-white py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap items-center justify-center gap-8 text-sm">
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
+                    </svg>
+                    <span>Free shipping over $100</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                    </svg>
+                    <span>30-day returns</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                    <span>Secure checkout</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Sellers -->
+    <section class="container mx-auto px-4 py-20 bg-white">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-light mb-4">Best Sellers</h2>
+            <p class="text-neutral-600">Our most loved pieces</p>
+        </div>
+        <div id="bestSellers" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <!-- Products will be loaded here -->
+        </div>
+        <div class="text-center">
+            <a href="shop.html?filter=best-sellers" class="inline-flex items-center gap-2 px-6 py-3 border border-black hover:bg-black hover:text-white transition-colors">
+                View All Best Sellers
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- New Arrivals -->
+    <section class="container mx-auto px-4 py-20 bg-neutral-50">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-light mb-4">New Arrivals</h2>
+            <p class="text-neutral-600">Fresh styles for the season</p>
+        </div>
+        <div id="newArrivals" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <!-- Products will be loaded here -->
+        </div>
+        <div class="text-center">
+            <a href="shop.html?filter=new" class="inline-flex items-center gap-2 px-6 py-3 border border-black hover:bg-black hover:text-white transition-colors">
+                View All New Arrivals
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="bg-black text-white py-20">
+        <div class="container mx-auto px-4 text-center max-w-2xl">
+            <h2 class="text-3xl md:text-4xl font-light mb-4">
+                Join the Velmora Community
+            </h2>
+            <p class="text-neutral-300 mb-8">
+                Get 10% off your first order plus exclusive access to new collections and special offers.
+            </p>
+            <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" onsubmit="return handleNewsletter(event)">
+                <input
+                    type="email"
+                    placeholder="Enter your email"
+                    required
+                    class="flex-1 px-4 py-3 bg-white text-black focus:outline-none"
+                />
+                <button
+                    type="submit"
+                    class="px-8 py-3 bg-white text-black hover:bg-neutral-200 transition-colors"
+                >
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-neutral-200 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-light mb-4">VELMORA</h3>
+                    <p class="text-sm text-neutral-600">Premium fashion for modern living</p>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Shop</h4>
+                    <ul class="space-y-2 text-sm text-neutral-600">
+                        <li><a href="shop.html?category=mens" class="hover:text-black transition-colors">Men's</a></li>
+                        <li><a href="shop.html?category=womens" class="hover:text-black transition-colors">Women's</a></li>
+                        <li><a href="shop.html?category=shoes" class="hover:text-black transition-colors">Shoes</a></li>
+                        <li><a href="shop.html?category=sale" class="hover:text-black transition-colors">Sale</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Help</h4>
+                    <ul class="space-y-2 text-sm text-neutral-600">
+                        <li><a href="contact.html" class="hover:text-black transition-colors">Contact</a></li>
+                        <li><a href="shipping.html" class="hover:text-black transition-colors">Shipping</a></li>
+                        <li><a href="returns.html" class="hover:text-black transition-colors">Returns</a></li>
+                        <li><a href="faq.html" class="hover:text-black transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">About</h4>
+                    <ul class="space-y-2 text-sm text-neutral-600">
+                        <li><a href="about.html" class="hover:text-black transition-colors">About Us</a></li>
+                        <li><a href="privacy.html" class="hover:text-black transition-colors">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="hover:text-black transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-neutral-200 pt-8 text-center text-sm text-neutral-600">
+                <p>&copy; 2026 Velmora. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="products-data.js"></script>
+    <script src="cart-functions.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

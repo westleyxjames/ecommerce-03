@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Information - Velmora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-neutral-50">
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-neutral-200 sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="text-2xl font-light tracking-wider">VELMORA</a>
+                
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="shop.html?category=mens" class="text-sm hover:text-neutral-600 transition-colors">Men's</a>
+                    <a href="shop.html?category=womens" class="text-sm hover:text-neutral-600 transition-colors">Women's</a>
+                    <a href="shop.html?category=shoes" class="text-sm hover:text-neutral-600 transition-colors">Shoes</a>
+                </div>
+
+                <div class="flex items-center gap-6">
+                    <a href="wishlist.html" class="relative">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                        <span id="wishlistCount" class="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"></span>
+                    </a>
+                    <a href="cart.html" class="relative">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                        <span id="cartCount" class="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Shipping Content -->
+    <div class="container mx-auto px-4 py-12">
+        <div class="max-w-4xl mx-auto bg-white p-8 md:p-12">
+            <h1 class="text-4xl font-light mb-4">Shipping Information</h1>
+            <p class="text-sm text-neutral-600 mb-8">Last Updated: February 25, 2026</p>
+
+            <div class="space-y-8 text-neutral-700">
+                <section>
+                    <h2 class="text-2xl font-medium mb-4">Shipping Options</h2>
+                    <div class="space-y-4">
+                        <div class="border border-neutral-200 p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-medium text-lg">Standard Shipping</h3>
+                                <span class="text-lg font-medium">$10.00</span>
+                            </div>
+                            <p class="text-neutral-600 mb-2">Delivery in 3-7 business days</p>
+                            <p class="text-sm text-green-600"><strong>FREE on orders over $100</strong></p>
+                        </div>
+
+                        <div class="border border-neutral-200 p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-medium text-lg">Express Shipping</h3>
+                                <span class="text-lg font-medium">$15.00</span>
+                            </div>
+                            <p class="text-neutral-600">Delivery in 1-3 business days</p>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-sm italic">*Shipping times are estimates and may vary based on your location and external factors.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-medium mb-4">Shipping Destinations</h2>
+                    <p class="mb-4">We currently ship to all 50 US states, including:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li><strong>Continental US:</strong> Standard shipping rates apply</li>
+                        <li><strong>Alaska & Hawaii:</strong> Additional shipping fees may apply due to distance</li>
+                        <li><strong>US Territories:</strong> Contact us for shipping rates and availability</li>
+                    </ul>
+                    <p class="mt-4">We do not currently ship internationally. We apologize for any inconvenience.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-medium mb-4">Order Processing</h2>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li>Orders are processed Monday through Friday, excluding holidays</li>
+                        <li>Orders placed before 12pm EST ship the same business day</li>
+                        <li>Orders placed after 12pm EST ship the next business day</li>
+                        <li>Weekend orders begin processing on Monday</li>
+                        <li>Processing may take 1-2 business days during peak seasons</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-medium mb-4">Order Tracking</h2>
+                    <p>Once your order ships, you'll receive a confirmation email with:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4 mt-3">
+                        <li>Tracking number</li>
+                        <li>Link to track your package</li>
+                        <li>Estimated delivery date</li>
+                    </ul>
+                    <p class="mt-4">You can track your order 24/7 through the carrier's website. Please allow 24 hours after shipment for tracking information to update.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-medium mb-4">Delivery</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="font-medium mb-2">Signature Requirements</h3>
+                            <p>Orders over $500 require an adult signature upon delivery. If no one is available to sign, the carrier will leave a notice with instructions for pickup or redelivery.</p>
+                        </div>
+                        <div>
+                            <h3 class="font-medium mb-2">Safe Place Delivery</h3>
+                            <p>If you won't be home, you can leave delivery instructions in the order notes during checkout. We're not responsible for items left in unsecured locations.</p>
+                        </div>
+                        <div>
+                            <h3 class="font-medium mb-2">PO Boxes</h3>
+                            <p>We can ship to PO Boxes via USPS only. Express shipping is not available for PO Box addresses.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-medium mb-4">Shipping Restrictions</h2>
+                    <p class="mb-3">Please note that we cannot deliver to:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li>Freight forwarders or package consolidators</li>
+                        <li>Military APO/FPO addresses (we're working on this!)</li>
+                        <li>International addresses</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-medium mb-4">Multiple Item Orders</h2>
+                    <p>Most orders ship together in one package. However, if items are coming from different warehouses, you may receive multiple shipments. You'll receive separate tracking numbers for each package at no additional cost.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-medium mb-4">Shipping Delays</h2>
+                    <p class="mb-3">While rare, shipments may be delayed due to:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li>Weather conditions</li>
+                        <li>Carrier delays</li>
+                        <li>Peak holiday seasons</li>
+                        <li>Incorrect shipping address</li>
+                        <li>Customs delays (for territories)</li>
+                    </ul>
+                    <p class="mt-4">If your order is delayed beyond the estimated delivery date, please contact us at support@velmora.com.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-medium mb-4">Lost or Stolen Packages</h2>
+                    <p>If tracking shows your package was delivered but you haven't received it:</p>
+                    <ol class="list-decimal list-inside space-y-2 ml-4 mt-3">
+                        <li>Check with neighbors or household members</li>
+                        <li>Look around your delivery location (porch, garage, etc.)</li>
+                        <li>Contact the shipping carrier</li>
+                        <li>Wait 24 hours (sometimes packages are marked delivered before arrival)</li>
+                        <li>Contact us at support@velmora.com if the package doesn't arrive</li>
+                    </ol>
+                    <p class="mt-4">We're not responsible for stolen packages, but we'll work with you to resolve the issue.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-medium mb-4">Incorrect Address</h2>
+                    <p>Please ensure your shipping address is correct during checkout. If you realize there's an error:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4 mt-3">
+                        <li><strong>Before Shipping:</strong> Contact us immediately to update the address</li>
+                        <li><strong>After Shipping:</strong> Contact the carrier directly to request an address change</li>
+                    </ul>
+                    <p class="mt-4">We're not responsible for orders shipped to incorrect addresses provided by the customer.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-medium mb-4">Holiday Shipping</h2>
+                    <p>During major holidays, please order early to ensure timely delivery. We recommend:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4 mt-3">
+                        <li><strong>Standard Shipping:</strong> Order 2 weeks before the holiday</li>
+                        <li><strong>Express Shipping:</strong> Order 1 week before the holiday</li>
+                    </ul>
+                    <p class="mt-4">Holiday shipping cutoff dates will be posted on our homepage.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-medium mb-4">Questions?</h2>
+                    <p>If you have any questions about shipping, please contact us:</p>
+                    <div class="mt-4 p-4 bg-neutral-50">
+                        <p><strong>Velmora Shipping Support</strong></p>
+                        <p>Email: shipping@velmora.com</p>
+                        <p>Phone: 1-800-VELMORA</p>
+                        <p>Hours: Monday - Friday, 9am - 6pm EST</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-neutral-200 py-12 mt-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center text-sm text-neutral-600">
+                <p>&copy; 2026 Velmora. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="cart-functions.js"></script>
+</body>
+</html>
